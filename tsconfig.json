@@ -15,6 +15,12 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
+    "paths": {
+      "strength-checker": [
+        "dist/strength-checker/strength-checker",
+        "dist/strength-checker"
+      ]
+    },
     "module": "es2020",
     "lib": [
       "es2018",
