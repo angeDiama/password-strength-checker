@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { StrengthCheckerComponent } from './strength-checker.component';
+import {CommonModule} from "@angular/common";
 
 
 
@@ -7,8 +8,9 @@ import { StrengthCheckerComponent } from './strength-checker.component';
   declarations: [
     StrengthCheckerComponent
   ],
-  imports: [
-  ],
+    imports: [
+        CommonModule
+    ],
   exports: [
     StrengthCheckerComponent
   ]

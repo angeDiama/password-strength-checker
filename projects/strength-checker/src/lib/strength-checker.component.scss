@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+  margin-top: .6rem;
+  &__strength-bar {
+    width: auto;
+    height: 5px;
+    border-radius: 5px;
+    background: #E7E7E7 ;
+    .content {
+      height: inherit;
+      border-radius: inherit;
+      background: transparent;
+      width: 0;
+      transition: width 1s ease-out, background .5s
+    }
+  }
+  &__text {
+    display: flex;
+    margin-top: 0.6rem;
+    align-items: center;
+    .icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+    span {
+      margin-left: .5rem;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="wrapper" *ngIf="password.length">
+  <div class="wrapper__strength-bar">
+    <div class="content" [style.width]="getBarColorStyle(strengthLevel).width"
+         [style.background]="getBarColorStyle(strengthLevel).color">
+    </div>
+  </div>
+  <div *ngIf="feedbacks" class="wrapper__text" [attr.data-text-color]="strengthLevel" >
+   <div class="icon" [style.background]="getBarColorStyle(strengthLevel).color"></div>
+    <span [style.color]="getBarColorStyle(strengthLevel).color">{{feedbackValue}}</span>
+  </div>
+</div>

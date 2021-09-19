@@ -13,6 +13,10 @@
       "es2018"
     ]
   },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "enableIvy": false
+  },
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
