@@ -3,7 +3,7 @@
   margin-top: .6rem;
   &__strength-bar {
     width: auto;
-    height: 5px;
+    height: .4rem;
     border-radius: 5px;
     background: #E7E7E7 ;
     .content {
@@ -19,9 +19,18 @@
     margin-top: 0.6rem;
     align-items: center;
     .icon {
+      background: url("error-icon.png");
       width: 20px;
       height: 20px;
       border-radius: 50%;
+      div[data-icon = 'low'], div[data-icon = 'medium']  {
+        background: url("error-icon.png") no-repeat center;
+        height: inherit;
+      }
+      div[data-icon = 'good']  {
+        background: url("success-icon.png") no-repeat center;
+        height: inherit;
+      }
     }
     span {
       margin-left: .5rem;

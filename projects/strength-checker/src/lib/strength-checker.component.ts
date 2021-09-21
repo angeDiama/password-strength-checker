@@ -18,11 +18,16 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
   @Input() requiredLength: number = 8;
   @Input() barColors: string[] = ['#FF0000', '#FF7700', '#0CC124'];
 
-  private _addSpecialCharacters =  false;
+  private _addSpecialCharacters = false;
 
   @Input()
-  get addSpecialCharacters() {return this._addSpecialCharacters;}
-  set addSpecialCharacters(value) {this._addSpecialCharacters = value;}
+  get addSpecialCharacters() {
+    return this._addSpecialCharacters;
+  }
+
+  set addSpecialCharacters(value) {
+    this._addSpecialCharacters = value;
+  }
 
   @Input() feedbacks: Feedbacks = {
     errorText: 'Must have at least 8 characters',
@@ -36,9 +41,11 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
 
   private _destroy$ = new Subject();
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.password) {
@@ -78,8 +85,8 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
 
 
   getBarColorStyle(strengthLevel: string) {
-    let width : string;
-    let color : string;
+    let width: string;
+    let color: string;
     switch (strengthLevel) {
       case 'low' :
         width = '20%';
@@ -87,7 +94,7 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
         break;
       case 'medium' :
         width = '45%';
-        color = this.barColors[1];
+        color = this.barColors[1] || this.barColors[0];
         break;
       case 'good' :
         width = '100%';

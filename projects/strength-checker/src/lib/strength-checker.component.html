@@ -4,8 +4,10 @@
          [style.background]="getBarColorStyle(strengthLevel).color">
     </div>
   </div>
-  <div *ngIf="feedbacks" class="wrapper__text" [attr.data-text-color]="strengthLevel" >
-   <div class="icon" [style.background]="getBarColorStyle(strengthLevel).color"></div>
+  <div *ngIf="feedbacks" class="wrapper__text">
+   <div class="icon" [style.background]="getBarColorStyle(strengthLevel).color">
+     <div [attr.data-icon]="strengthLevel"></div>
+   </div>
     <span [style.color]="getBarColorStyle(strengthLevel).color">{{feedbackValue}}</span>
   </div>
 </div>
