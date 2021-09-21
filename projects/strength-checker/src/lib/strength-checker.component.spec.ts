@@ -33,8 +33,8 @@ describe('StrengthCheckerComponent', () => {
   });
 
   it('check if password has special characters', () => {
-    component.addSpecialCharacters = true;
-    component.searchSpecialCharacters('myPassword');
-    expect(component.isSpecialChar).toBe(false, 'doesn\'t contain special characters')
+    let onlyNumbersPattern = /^\d*(\.\d+)?$/
+    component.matchPattern('myPassword', onlyNumbersPattern);
+    expect(component.isMatchPattern).toBe(false, 'doesn\'t match defined pattern')
   });
 });

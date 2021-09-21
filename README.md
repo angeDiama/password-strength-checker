@@ -53,6 +53,7 @@ Define options in your consuming component:
 @Component({...})
 export class ExampleComponent {
   password = new FormControl('', [Validators.required]);
+  myRegex = /^\d+$/;
 }
 ```
 
@@ -65,7 +66,7 @@ In template use `ngx-strength-checker` component with your options
     <label for="password"> Password</label>
     <input type="password" id="password" [formControl]="password" autocomplete="off">
   </div>
-  <ngx-strength-checker [requiredLength]="8" [password]="password.value"></ngx-strength-checker>
+  <ngx-strength-checker [requiredLength]="8" [password]="password.value" [regexPattern]="myRegex"></ngx-strength-checker>
 </form>
 ```
 
@@ -77,8 +78,8 @@ In template use `ngx-strength-checker` component with your options
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | password | `string` | `` | yes | password value to evaluate strength |
 | requiredStrength | `number` | 8 | no | a required min length of the password passed has input|
-| barColors | `string[]` |  `['#FF0000', '#FF7700', '#0CC124']` | no | update the bar color to display in UI, first color is for error output,second for password which match perfectly with required length but missed a special characters or number then the last for password which match perfectly with your standard defined |
-| addSpecialCharacters  | `boolean` | `false` | no | if you want users to add a special characters or a number in password|
+| barColors | `string[]` |  `['#FF0000', '#FF7700', '#0CC124']` | no | update the bar color to display in UI, first color is for error output,second for password which match perfectly with required length but not with your regex pattern and the last for password which match perfectly with your standard defined |
+| regexPattern | `Regexp` | `/^[a-zA-Z]+$/` | no | if you want more complexity , its check if password contain some characters that you will define with your regex |
 | feedbacks  | `{errorText: string, mediumText: string, successText: string}` | `{ errorText: 'Must have at least 8 characters', mediumText: 'Add special characters or number', successText: 'Good password'}` | no | to custom output message to show to the user |
 
 ### Testing

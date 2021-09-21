@@ -17,17 +17,8 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
   @Input() password: string = '';
   @Input() requiredLength: number = 8;
   @Input() barColors: string[] = ['#FF0000', '#FF7700', '#0CC124'];
+  @Input() regexPattern: RegExp | any;
 
-  private _addSpecialCharacters = false;
-
-  @Input()
-  get addSpecialCharacters() {
-    return this._addSpecialCharacters;
-  }
-
-  set addSpecialCharacters(value) {
-    this._addSpecialCharacters = value;
-  }
 
   @Input() feedbacks: Feedbacks = {
     errorText: 'Must have at least 8 characters',
@@ -36,7 +27,7 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
   };
 
   strengthLevel: string | any = null;
-  isSpecialChar: boolean = false;
+  isMatchPattern: boolean = false;
   feedbackValue: string = '';
 
   private _destroy$ = new Subject();
@@ -49,7 +40,7 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.password) {
-      this.searchSpecialCharacters(this.password)
+      this.matchPattern(this.password, this.regexPattern ? this.regexPattern : null)
       this.checkPasswordStrength();
     }
   }
@@ -61,13 +52,10 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
     } else if (this.password && this.password.length < this.requiredLength) {
       this.strengthLevel = 'low';
       this.feedbackValue = this.feedbacks.errorText;
-    } else if (this.password && this.password.length >= this.requiredLength && this.addSpecialCharacters && !this.isSpecialChar) {
+    } else if (this.password && this.password.length >= this.requiredLength  && !this.isMatchPattern) {
       this.strengthLevel = 'medium';
       this.feedbackValue = this.feedbacks.mediumText;
-    } else if (this.password && this.password.length >= this.requiredLength && this.addSpecialCharacters && this.isSpecialChar) {
-      this.strengthLevel = 'good';
-      this.feedbackValue = this.feedbacks.successText;
-    } else if (this.password && this.password.length >= this.requiredLength && !this.addSpecialCharacters) {
+    } else if (this.password && this.password.length >= this.requiredLength  && this.isMatchPattern) {
       this.strengthLevel = 'good';
       this.feedbackValue = this.feedbacks.successText;
     }
@@ -75,12 +63,17 @@ export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
 
   /**
    * check if entry password value contains some special characters or numbers
+   * default pattern is to check if pattern has no special characters
    *
    * @param password
+   * @param regex
    */
-  searchSpecialCharacters(password: string): boolean {
-    const simpleCharactersRegex = /^[a-zA-Z]+$/;
-    return simpleCharactersRegex.test(password) ? this.isSpecialChar = false : this.isSpecialChar = true;
+  matchPattern(password: string, regex?: any): boolean {
+    const defaultPatternRegex = /^[a-zA-Z]+$/;
+    if (regex) {
+      return regex.test(password) ? this.isMatchPattern = true : this.isMatchPattern = false;
+    }
+    return defaultPatternRegex.test(password) ? this.isMatchPattern = false : this.isMatchPattern = true;
   }
 
 
