@@ -18,13 +18,13 @@ tested with karma and jasmine
 #### NPM
 
 ```shell
-npm install --save @ngx-strength-checker
+npm install --save @ngx/strength-checker
 ```
 
 #### YARN
 
 ```shell
-yarn add @ngx-strength-checker
+yarn add @ngx/strength-checker
 ```
 
 ### Step 2: Import the StrengthCheckerModule and angular FormsModule module and also ReactiveFormsModule for using it in reactive forms
