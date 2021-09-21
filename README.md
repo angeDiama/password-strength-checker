@@ -1,27 +1,92 @@
-# StrengthChecker
+# Ngx password strength checker
+An Angular library to check input password field strength and return invalid or valid statement with animated bar color.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+this library has been built with no dependencies to provide an easy way to use it
 
-## Development server
+## Versions
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+| Angular| ng-select|
+| ------|:------:| 
+| > =12.0.0 <13.0.0 | v1.x |
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Step 1: Install `ngx-strength-checker`:
 
-## Build
+#### NPM
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```shell
+npm install --save @ngx-strength-checker
+```
 
-## Running unit tests
+#### YARN
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+yarn add @ngx-strength-checker
+```
 
-## Running end-to-end tests
+### Step 2: Import the StrengthCheckerModule and angular FormsModule module and also ReactiveFormsModule for using it in reactive forms
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```js
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {StrengthCheckerModule} from "strength-checker";
 
-## Further help
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    StrengthCheckerModule,
+    ReactiveFormsModule,
+    FormsModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Usage
+
+Define options in your consuming component:
+
+```js
+@Component({...})
+export class ExampleComponent {
+  password = new FormControl('', [Validators.required]);
+}
+```
+
+In template use `ngx-strength-checker` component with your options
+
+```html
+<!--Using ng-option and for loop-->
+<form>
+  <div class="">
+    <label for="password"> Password</label>
+    <input type="password" id="password" [formControl]="password" autocomplete="off">
+  </div>
+  <ngx-strength-checker [requiredLength]="8" [password]="password.value"></ngx-strength-checker>
+</form>
+```
+
+## API
+
+### Inputs
+
+| Input  | Type | Default | Required | Description |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| password | `string` | `` | yes | password value to evaluate strength |
+| requiredStrength | `number` | 8 | no | a required min length of the password passed has input|
+| barColors | `string[]` |  `['#FF0000', '#FF7700', '#0CC124']` | no | update the bar color to display in UI, first color is for error output,
+ second for password which match perfectly with required length but missed a special characters or number then the last for password which
+ match perfectly with your standard defined |
+| addSpecialCharacters  | `boolean` | `false` | no | if you want users to add a special char or a number in password|
+| feedbacks  | `{errorText: string, mediumText: string, successText: string}` | `{ errorText: 'Must have at least 8 characters', mediumText: 'Add special characters or number',
+ successText: 'Good password'
+ }` | no | to custom output message to show to the user |
+
+### Testing
+
+```
+yarn run test
+or
+yarn run test:watch
+```
