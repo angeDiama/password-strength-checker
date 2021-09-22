@@ -8,21 +8,21 @@
   "projects": {
     "password-strength-checker": {
       "projectType": "library",
-      "root": "projects/password-strength-checker",
-      "sourceRoot": "projects/password-strength-checker/src",
+      "root": "projects/ngx-password-strength-checker",
+      "sourceRoot": "projects/ngx-password-strength-checker/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/password-strength-checker/ng-package.json"
+            "project": "projects/ngx-password-strength-checker/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/password-strength-checker/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-password-strength-checker/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/password-strength-checker/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-password-strength-checker/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -30,9 +30,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/password-strength-checker/src/test.ts",
-            "tsConfig": "projects/password-strength-checker/tsconfig.spec.json",
-            "karmaConfig": "projects/password-strength-checker/karma.conf.js"
+            "main": "projects/ngx-password-strength-checker/src/test.ts",
+            "tsConfig": "projects/ngx-password-strength-checker/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-password-strength-checker/karma.conf.js"
           }
         }
       }

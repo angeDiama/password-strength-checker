@@ -1,4 +1,4 @@
-# password-strength-checker
+# ngx-password-strength-checker
 An Angular library to check input password field strength and return invalid or valid statement with animated bar color.
 
 this library has been built with no dependencies to provide an easy way to use it.

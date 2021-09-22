@@ -17,8 +17,8 @@
     "target": "es2017",
     "paths": {
       "strength-checker": [
-        "dist/password-strength-checker/password-strength-checker",
-        "dist/password-strength-checker"
+        "dist/ngx-password-strength-checker/ngx-password-strength-checker",
+        "dist/ngx-password-strength-checker"
       ]
     },
     "module": "es2020",
