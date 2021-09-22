@@ -1,5 +1,5 @@
 {
-  "name": "password-strength-checker",
+  "name": "@adiama/password-strength-checker",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",

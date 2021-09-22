@@ -1,5 +1,5 @@
 {
-  "name": "password-strength-checker",
+  "name": "@adiama/password-strength-checker",
   "version": "1.0.0",
   "description": "An Angular library to check input password field strength and return invalid or valid statement",
   "keywords": [
