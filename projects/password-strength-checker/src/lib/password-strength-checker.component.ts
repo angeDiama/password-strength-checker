@@ -8,12 +8,12 @@ export interface Feedbacks {
 }
 
 @Component({
-  selector: 'ngx-strength-checker',
-  templateUrl: './strength-checker.component.html',
-  styleUrls: ['./strength-checker.component.scss']
+  selector: 'password-strength-checker',
+  templateUrl: './password-strength-checker.component.html',
+  styleUrls: ['./password-strength-checker.component.scss']
 })
 
-export class StrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
+export class PasswordStrengthCheckerComponent implements OnInit, OnChanges, OnDestroy {
   @Input() password: string = '';
   @Input() requiredLength: number = 8;
   @Input() barColors: string[] = ['#FF0000', '#FF7700', '#0CC124'];

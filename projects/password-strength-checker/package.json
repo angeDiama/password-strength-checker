@@ -1,0 +1,42 @@
+{
+  "name": "password-strength-checker",
+  "version": "1.0.0",
+  "description": "An Angular library to check input password field strength and return invalid or valid statement",
+  "keywords": [
+    "angular",
+    "strength-checker-component",
+    "password-strength-checker-component",
+    "password-checker",
+    "input",
+    "password",
+    "strength",
+    "check",
+    "checker",
+    "strenght-checker",
+    "password-strength",
+    "password-strenght-checker",
+    "frontend",
+    "front-end"
+  ],
+  "author": {
+    "name": "Ange Diama",
+    "email": "mickaeldiama@gmail.com",
+    "url": "https://github.com/angeDiama"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angeDiama/password-strength-checker.git"
+  },
+  "bugs" : "https://github.com/angeDiama/password-strength-checker/issues/new",
+  "homepage": "https://github.com/angeDiama/password-strength-checker",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "5.0.0-alpha - 5 || 6.0.0-alpha - 6 || 7.0.0-alpha - 7 || 8.0.0-alpha - 8 || 9.0.0-alpha - 9 || 10.0.0-alpha - 10 || 11.0.0-alpha - 11 || 12.0.0-alpha - 12 || 13.0.0-alpha - 13",
+    "@angular/compiler": "5.0.0-alpha - 5 || 6.0.0-alpha - 6 || 7.0.0-alpha - 7 || 8.0.0-alpha - 8 || 9.0.0-alpha - 9 || 10.0.0-alpha - 10 || 11.0.0-alpha - 11 || 12.0.0-alpha - 12 || 13.0.0-alpha - 13",
+    "@angular/core": "5.0.0-alpha - 5 || 6.0.0-alpha - 6 || 7.0.0-alpha - 7 || 8.0.0-alpha - 8 || 9.0.0-alpha - 9 || 10.0.0-alpha - 10 || 11.0.0-alpha - 11 || 12.0.0-alpha - 12 || 13.0.0-alpha - 13",
+    "@angular/platform-browser": "5.0.0-alpha - 5 || 6.0.0-alpha - 6 || 7.0.0-alpha - 7 || 8.0.0-alpha - 8 || 9.0.0-alpha - 9 || 10.0.0-alpha - 10 || 11.0.0-alpha - 11 || 12.0.0-alpha - 12 || 13.0.0-alpha - 13"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

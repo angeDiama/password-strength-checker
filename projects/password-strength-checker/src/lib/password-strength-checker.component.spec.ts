@@ -1,20 +1,20 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {PasswordStrengthCheckerComponent} from "./password-strength-checker.component";
 
-import {StrengthCheckerComponent} from './strength-checker.component';
 
-describe('StrengthCheckerComponent', () => {
-  let component: StrengthCheckerComponent;
-  let fixture: ComponentFixture<StrengthCheckerComponent>;
+describe('PasswordStrengthCheckerComponent', () => {
+  let component: PasswordStrengthCheckerComponent;
+  let fixture: ComponentFixture<PasswordStrengthCheckerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StrengthCheckerComponent]
+      declarations: [PasswordStrengthCheckerComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StrengthCheckerComponent);
+    fixture = TestBed.createComponent(PasswordStrengthCheckerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -32,7 +32,7 @@ describe('StrengthCheckerComponent', () => {
     expect(component.strengthLevel).toBe('low', 'bad password: password should be contains must at least 8 characters')
   });
 
-  it('check if password has special characters', () => {
+  it('check if password match specific pattern defined', () => {
     let onlyNumbersPattern = /^\d*(\.\d+)?$/
     component.matchPattern('myPassword', onlyNumbersPattern);
     expect(component.isMatchPattern).toBe(false, 'doesn\'t match defined pattern')

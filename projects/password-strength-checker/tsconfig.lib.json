@@ -15,6 +15,7 @@
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
+    "enableIvy": false
   },
   "exclude": [
     "src/test.ts",
